@@ -65,7 +65,8 @@ class _EsewaPageState extends State<EsewaPage> {
   URLRequest getURLRequest() {
     var url =
         "${eSewaConfig.serverUrl}tAmt=${eSewaConfig.tAmt}&amt=${eSewaConfig.amt.toPrecision(2)}&txAmt=${eSewaConfig.txAmt?.toPrecision(2)}&psc=${eSewaConfig.psc}&pdc=${eSewaConfig.pdc}&scd=${eSewaConfig.scd}&pid=${eSewaConfig.pid}&su=${eSewaConfig.su}&fu=${eSewaConfig.fu}";
-    var urlRequest = URLRequest(url: Uri.tryParse(url));
+    // var urlRequest = URLRequest(url: Uri.parse(url));
+    var urlRequest = URLRequest(url: WebUri.uri(Uri.parse(url)));
     if (kDebugMode) {
       print(url);
     }
